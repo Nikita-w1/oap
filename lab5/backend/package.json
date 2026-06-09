@@ -1,0 +1,22 @@
+{
+  "name": "lab5-security-resources-api",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev:be": "tsx watch src/index.ts",
+    "seed": "tsx src/db/seed.ts"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.10",
+    "tsx": "^4.16.2",
+    "typescript": "^5.5.3"
+  },
+  "description": "Lab 5 security: Express, SQLite, TypeScript"
+}

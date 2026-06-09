@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ЛР5 — Каталог ресурсів</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+<div class="container">
+  <header class="header">
+    <h1>Каталог навчальних ресурсів</h1>
+    <p>Фронтенд працює через API <code>/api/v1/resources</code></p>
+  </header>
+
+  <div id="notice" class="notice"></div>
+
+  <section class="card">
+    <h2 id="formTitle">Новий ресурс</h2>
+    <form id="form" novalidate>
+      <div class="field">
+        <label for="title">Назва</label>
+        <input id="title" autocomplete="off">
+        <p class="field-error" id="titleError"></p>
+      </div>
+
+      <div class="field">
+        <label for="url">Посилання</label>
+        <input id="url" placeholder="https://example.com">
+        <p class="field-error" id="urlError"></p>
+      </div>
+
+      <div class="field">
+        <label for="type">Тип</label>
+        <select id="type">
+          <option value="">Оберіть</option>
+          <option value="Video">Відео</option>
+          <option value="Article">Стаття</option>
+          <option value="Course">Курс</option>
+          <option value="Book">Книга</option>
+          <option value="Tool">Інструмент</option>
+        </select>
+        <p class="field-error" id="typeError"></p>
+      </div>
+
+      <div class="field">
+        <label for="desc">Опис</label>
+        <textarea id="desc" rows="3"></textarea>
+        <p class="field-error" id="descError"></p>
+      </div>
+
+      <div class="field">
+        <label for="author">Автор</label>
+        <input id="author" autocomplete="off">
+        <p class="field-error" id="authorError"></p>
+      </div>
+
+      <div class="buttons">
+        <button type="submit" id="submitBtn">Зберегти</button>
+        <button type="button" id="cancelEdit" class="hidden secondary">Скасувати</button>
+      </div>
+    </form>
+  </section>
+
+  <section class="card">
+    <h2>Список ресурсів</h2>
+
+    <div class="filters">
+      <input id="searchInput" placeholder="Пошук за назвою...">
+      <select id="filterType">
+        <option value="">Усі типи</option>
+        <option value="Video">Відео</option>
+        <option value="Article">Стаття</option>
+        <option value="Course">Курс</option>
+        <option value="Book">Книга</option>
+        <option value="Tool">Інструмент</option>
+      </select>
+      <select id="sortBy">
+        <option value="createdAt">Сортувати за датою</option>
+        <option value="title">Сортувати за назвою</option>
+        <option value="type">Сортувати за типом</option>
+        <option value="author">Сортувати за автором</option>
+      </select>
+      <select id="sortDir">
+        <option value="desc">За спаданням</option>
+        <option value="asc">За зростанням</option>
+      </select>
+      <button type="button" id="reloadBtn" class="secondary">Оновити</button>
+    </div>
+
+    <div id="listStatus" class="status"></div>
+    <div id="detailsBox" class="details hidden"></div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Назва</th>
+          <th>Посилання</th>
+          <th>Тип</th>
+          <th>Автор</th>
+          <th>Дії</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </section>
+</div>
+</body>
+</html>
